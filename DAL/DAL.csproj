@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200422224759_AddedPrimaryToCompanyContact.cs" />
+    <Compile Remove="Migrations\20200422224759_AddedPrimaryToCompanyContact.Designer.cs" />
+    <Compile Remove="Migrations\20200422225101_AddedPrimaryToCompanyContact.cs" />
+    <Compile Remove="Migrations\20200422225101_AddedPrimaryToCompanyContact.Designer.cs" />
+    <Compile Remove="Migrations\20200422230004_AddedPrimaryToCompanyContact2.cs" />
+    <Compile Remove="Migrations\20200422230004_AddedPrimaryToCompanyContact2.Designer.cs" />
+    <Compile Remove="Migrations\20200422230251_AddedPrimaryToCompanyContact2.cs" />
+    <Compile Remove="Migrations\20200422230251_AddedPrimaryToCompanyContact2.Designer.cs" />
+    <Compile Remove="Migrations\20200422231033_AddedCibtactTableMigration.cs" />
+    <Compile Remove="Migrations\20200422231033_AddedCibtactTableMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200422232040_AddedIdentityToContactID.cs" />
+    <Compile Remove="Migrations\20200422232040_AddedIdentityToContactID.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+</Project>
