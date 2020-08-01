@@ -1,0 +1,84 @@
+﻿[
+  {
+    "name": "NIS",
+    "companyUsername": "nis",
+    "contacts": [
+      {
+        "contactType": "Telephone",
+        "value": "08 0000 8888"
+      },
+      {
+        "contactType": "Email",
+        "value": "office@nis.eu"
+      }
+    ],
+    "locations": [
+      {
+        "City": {
+          "name": "Нови Сад"
+        },
+        "streetName": "Народног фронта",
+        "streetNumber": "12"
+      }
+    ],
+    "mentors": [
+      {
+        "name": "Пера",
+        "surname": "Перић",
+        "contacts": [
+          {
+            "contactType": "Telephone",
+            "value": "+381 63 8755365"
+          },
+          {
+            "contactType": "Email",
+            "value": "pera@nis.eu"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Imlek",
+    "companyUsername": "imlek",
+    "contacts": [
+      {
+        "contactType": "Telephone",
+        "value": "+381 11 37 72 473"
+      },
+      {
+        "contactType": "Telephone",
+        "value": "+381 11 30 50 505"
+      },
+      {
+        "contactType": "Email",
+        "value": "info@imlek.rs"
+      }
+    ],
+    "locations": [
+      {
+        "City": {
+          "name": "Београд"
+        },
+        "streetName": "Индустријско насеље",
+        "streetNumber": "bb"
+      }
+    ],
+    "mentors": [
+      {
+        "name": "Мика",
+        "surname": "Микић",
+        "contacts": [
+          {
+            "contactType": "Telephone",
+            "value": "+381 63 4588576"
+          },
+          {
+            "contactType": "Email",
+            "value": "mika@imlek.rs"
+          }
+        ]
+      }
+    ]
+  }
+]

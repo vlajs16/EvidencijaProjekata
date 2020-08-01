@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logics", "Logics\Logics.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataTransferObjects", "DataTransferObjects\DataTransferObjects.csproj", "{A815727D-39F8-46D7-8E84-AFABD2975884}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers", "Helpers\Helpers.csproj", "{C5A3D31F-5704-4AE7-B632-61E87C3562E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpers", "Helpers\Helpers.csproj", "{C5A3D31F-5704-4AE7-B632-61E87C3562E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeedData", "SeedData\SeedData.csproj", "{CD9D2E42-A407-4375-8A57-6C3745638EE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{C5A3D31F-5704-4AE7-B632-61E87C3562E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5A3D31F-5704-4AE7-B632-61E87C3562E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5A3D31F-5704-4AE7-B632-61E87C3562E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD9D2E42-A407-4375-8A57-6C3745638EE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD9D2E42-A407-4375-8A57-6C3745638EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD9D2E42-A407-4375-8A57-6C3745638EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD9D2E42-A407-4375-8A57-6C3745638EE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
