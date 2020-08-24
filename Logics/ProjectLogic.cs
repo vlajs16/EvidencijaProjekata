@@ -87,6 +87,21 @@ namespace Logics
             }
         }
 
+        public async Task<int[]> GetNumbers()
+        {
+            try
+            {
+                int approved = await _context.Projects.CountAsync();
+                int notApproved = await _context.ProjectProposals.Where(x => x.Approved == false).CountAsync();
+                return new int[] { approved, notApproved };
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(">>>>>>>> " + ex.Message);
+                return null;
+            }
+        }
+
         public async Task<List<Project>> GetObjects()
         {
             try
@@ -119,6 +134,10 @@ namespace Logics
                 project.DecisionMaker = await _context.Employees.FirstOrDefaultAsync(x => x.EmployeeID == project.DecisionMaker.EmployeeID);
                 if (project.InternalMentor == null || project.ProjectProposal == null || project.DecisionMaker == null)
                     return false;
+
+                project.AdoptionDate = DateTime.Now;
+                project.ProjectProposal.Approved = true;
+
                 await _context.Projects.AddAsync(project);
                 await _context.SaveChangesAsync();
                 return true;

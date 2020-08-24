@@ -39,9 +39,9 @@ namespace Helpers
             CreateMap<ExternalMentor, ExternalMentorForListDTO>();
             CreateMap<LocationInsertCompanyDTO, Location>();
             CreateMap<Location, LocationToViewCompanyDTO>();
-            CreateMap<Employee, EmployeeDTO>();
+            CreateMap<Employee, EmployeeDTO>().ReverseMap();
             CreateMap<EmployeePosition, EmployeePositionDTO>();
-            CreateMap<ExternalMentorContact, ExternalMentorContactDTO>();
+            CreateMap<ExternalMentorContact, ExternalMentorContactDTO>().ReverseMap();
             CreateMap<LocationToUpdateDTO, Location>();
             CreateMap<ScientificArea, ScientificAreaForListDTO>();
             CreateMap<ScientificArea, ScientificAreaDetailsDTO>();
@@ -69,6 +69,7 @@ namespace Helpers
             CreateMap<ProjectCoveringSubjectInsertDTO, ProjectCoveringSubject>()
                 .ForMember(dest => dest.ScientificArea,
                 opt => opt.MapFrom(p => p.ScientificArea));
+
             CreateMap<ProjectProposalForInsertDTO, ProjectProposal>()
                 .ForMember(dest => dest.ExternalMentor,
                 opt => opt.MapFrom(p => p.ExternalMentor))
@@ -76,7 +77,9 @@ namespace Helpers
                 opt => opt.MapFrom(p => p.Subjects))
                 .ForMember(dest => dest.Company,
                 opt => opt.MapFrom(p => p.Company));
-            CreateMap<Company,CompanyForInsertProjectProposalDTO>();
+
+
+            CreateMap<Company,CompanyForInsertProjectProposalDTO>().ReverseMap();
             CreateMap<Company,CompanyProjectToListDTO>();
             CreateMap<ProjectProposal,ProjectProposalProjectToListDTO>()
                 .ForMember(dest => dest.Company,
@@ -122,6 +125,7 @@ namespace Helpers
                 .ForMember(dest => dest.Project,
                 opt => opt.MapFrom(p => p.Project));
             CreateMap<EmployeeInternalSignerInsertDTO, Employee>();
+            CreateMap<ExternalMentorToInsertDTO, ExternalMentor>();
         }
     }
 }

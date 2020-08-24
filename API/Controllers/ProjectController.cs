@@ -77,6 +77,20 @@ namespace API.Controllers
             return Ok();
         }
 
+        //GET: api/project/number
+        [HttpGet("number")]
+        public async Task<IActionResult> GetNumbers()
+        {
+            int[] numbers = await _logic.GetNumbers();
+            return Ok(
+            new { 
+                approved = numbers[0],
+                notApproved = numbers[1]
+            });
+                
+            
+        }
+
         // DELETE: api/Project/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)

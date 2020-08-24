@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using DataTransferObjects.ExternalMentorDTOs;
 using Domain;
 using Logics.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [Route("api/externalmentor")]
+    [Route("api/externalmentor/")]
     [ApiController]
+    [Authorize]
     public class ExternalMentorController : ControllerBase
     {
         private readonly IExternalMentorLogic _logic;
@@ -58,12 +61,19 @@ namespace API.Controllers
         }
 
         // POST: api/ExternalMentor
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] ExternalMentor mentor)
+        [HttpPost("{companyId}")]
+        public async Task<IActionResult> Post(long companyId, [FromBody] ExternalMentorToInsertDTO mentor)
         {
-            if (!await _logic.Insert(mentor))
+            if (companyId != long.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                return Unauthorized();
+
+            var mentorForInsert = _mapper.Map<ExternalMentor>(mentor);
+            mentorForInsert.CompanyID = companyId;
+
+            if (!await _logic.Insert(mentorForInsert))
                 return BadRequest();
-            return Ok();
+            var metorToReturn = _mapper.Map<ExternalMentorToViewDTO>(mentorForInsert);
+            return Ok(metorToReturn);
         }
 
         // PUT: api/ExternalMentor/5

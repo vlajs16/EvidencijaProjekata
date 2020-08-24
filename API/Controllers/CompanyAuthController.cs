@@ -46,7 +46,8 @@ namespace API.Controllers
             var claims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, companyFromRepo.CompanyID.ToString()),
-                new Claim(ClaimTypes.Name, companyFromRepo.CompanyUsername)
+                new Claim(ClaimTypes.Name, companyFromRepo.CompanyUsername),
+                new Claim(ClaimTypes.Actor, "company")
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.
@@ -65,9 +66,12 @@ namespace API.Controllers
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
+            var companyToReturn = _mapper.Map<CompanyForListDTO>(companyFromRepo);
+
             return Ok(new
             {
-                token = tokenHandler.WriteToken(token)
+                token = tokenHandler.WriteToken(token),
+                company = companyToReturn
             });
 
         }

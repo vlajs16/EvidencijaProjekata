@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using DataTransferObjects.ProjectProposalDTOs;
 using Domain;
 using Logics.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +16,7 @@ namespace API.Controllers
     // Treba dodati da samo kompanija može da unosi ako je ulogovana...
     [Route("api/projectProposal")]
     [ApiController]
+    [Authorize]
     public class ProjectProposalController : ControllerBase
     {
         private readonly IProjectProposal _pojectLogic;
@@ -62,10 +65,15 @@ namespace API.Controllers
             return Ok(projectsToReturn);
         }
 
-        // POST: api/projectProposal
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] ProjectProposalForInsertDTO project)
+        // POST: api/projectProposal/{companyId}
+        [HttpPost("{companyId}")]
+        public async Task<IActionResult> Post(int companyId, [FromBody] ProjectProposalForInsertDTO project)
         {
+            if (companyId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+                return Unauthorized();
+
+
+
             var projectToInsert = _mapper.Map<ProjectProposal>(project);
             projectToInsert.ExternalMentor.CompanyID = projectToInsert.Company.CompanyID;
 

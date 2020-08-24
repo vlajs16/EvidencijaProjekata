@@ -14,5 +14,6 @@ namespace Logics.Interfaces
         Task<bool> Insert(Project project);
         Task<bool> Update(Project project);
         Task<bool> Delete(Project project);
+        Task<int[]> GetNumbers();
     }
 }

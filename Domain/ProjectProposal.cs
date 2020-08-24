@@ -17,5 +17,6 @@ namespace Domain
         public ExternalMentor ExternalMentor { get; set; }
         public Company Company { get; set; }
         public List<ProjectCoveringSubject> Subjects { get; set; }
+        public bool Approved { get; set; } = false;
     }
 }

@@ -11,7 +11,7 @@ namespace Logics.Interfaces
         Task<List<ExternalMentorContact>> GetObjectsForMentor(int mentorId);
         Task<List<ExternalMentorContact>> Find(int mentorId, string value);
         Task<bool> Update(ExternalMentorContact contact);
-        Task<bool> Delete(int serialNumber);
+        Task<bool> Delete(int companyId, int mentorId, int serialNumber);
         Task<bool> Insert(ExternalMentorContact contact);
     }
 }

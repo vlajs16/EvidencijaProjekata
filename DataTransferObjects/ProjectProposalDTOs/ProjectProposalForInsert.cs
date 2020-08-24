@@ -9,7 +9,6 @@ namespace DataTransferObjects.ProjectProposalDTOs
 {
     public class ProjectProposalForInsertDTO
     {
-        public DateTime ProposalDate { get; set; }
         public string Name { get; set; }
         public string Goal { get; set; }
         public string Description { get; set; }

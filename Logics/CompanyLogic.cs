@@ -42,7 +42,7 @@ namespace Logics
             {
                 Company company = await _context.Companies
                     .Include(x => x.Locations)
-                    .Include(x => x.Mentors)
+                    .Include(x => x.Mentors).ThenInclude(c => c.Contacts)
                     .Include(x => x.Contacts).FirstOrDefaultAsync(c => c.CompanyID == id);
                 return company;
             }

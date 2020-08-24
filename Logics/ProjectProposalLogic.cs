@@ -61,6 +61,7 @@ namespace Logics
             try
             {
                 var projectsFromRepo = await _context.ProjectProposals
+                    .Where(x => x.Approved == false)
                     .Include(x => x.Company)
                     .ToListAsync();
                 return projectsFromRepo;
@@ -106,6 +107,8 @@ namespace Logics
                         return false;
                     subj.ScientificArea = pom;
                 }
+
+                projectProposal.ProposalDate = DateTime.Now;
 
                 await _context.ProjectProposals.AddAsync(projectProposal);
                 await _context.SaveChangesAsync();

@@ -76,7 +76,8 @@ namespace API.Controllers
             var claims = new[]
             {
                new Claim(ClaimTypes.NameIdentifier, userFromRepo.EmployeeID.ToString()),
-               new Claim(ClaimTypes.Name, userFromRepo.Username)
+               new Claim(ClaimTypes.Name, userFromRepo.Username),
+               new Claim(ClaimTypes.Actor, "employee")
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.
@@ -95,9 +96,12 @@ namespace API.Controllers
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
+            var empToReturn = _mapper.Map<EmployeeDTO>(userFromRepo);
+
             return Ok(new
             {
-                token = tokenHandler.WriteToken(token)
+                token = tokenHandler.WriteToken(token),
+                user = empToReturn
             });
         }
     }
