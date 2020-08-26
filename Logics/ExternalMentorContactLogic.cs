@@ -21,9 +21,7 @@ namespace Logics
         public async Task<bool> Delete(int companyId, int mentorId, int serialNumber)
         {
             ExternalMentorContact contact = await _context.ExternalMentorContacts
-                .FirstOrDefaultAsync(x => x.ExternalMentorCompanyID == companyId 
-                && x.ExternalMentorMentorID == mentorId 
-                && x.SerialNumber == serialNumber);
+                .FirstOrDefaultAsync(x => x.SerialNumber == serialNumber);
             if (contact == null)
                 return false;
             _context.ExternalMentorContacts.Remove(contact);

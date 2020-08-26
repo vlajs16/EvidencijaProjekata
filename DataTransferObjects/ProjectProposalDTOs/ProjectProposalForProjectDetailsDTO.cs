@@ -13,6 +13,9 @@ namespace DataTransferObjects.ProjectProposalDTOs
         public string Name { get; set; }
         public string Goal { get; set; }
         public string Description { get; set; }
+        public DateTime StartDateProjectProposal { get; set; }
+        public DateTime ProposalDate { get; set; }
+        public int DaysDuration { get; set; }
         public string Activities { get; set; }
         public ExternalMentorForProjectDetailsDTO ExternalMentor { get; set; }
         public CompanyForInsertProjectProposalDTO Company { get; set; }

@@ -65,7 +65,7 @@ namespace Helpers
             CreateMap<ExternalMentorForInsertProjectDTO, ExternalMentor>()
                 .ForMember(dest => dest.MentorID, 
                 opt => opt.MapFrom(p => p.MentorID.GetValueOrDefault()));
-            CreateMap<ScientificAreaToInsertProjectProposalDTO, ScientificArea>();
+            CreateMap<ScientificAreaToInsertProjectProposalDTO, ScientificArea>().ReverseMap();
             CreateMap<ProjectCoveringSubjectInsertDTO, ProjectCoveringSubject>()
                 .ForMember(dest => dest.ScientificArea,
                 opt => opt.MapFrom(p => p.ScientificArea));
